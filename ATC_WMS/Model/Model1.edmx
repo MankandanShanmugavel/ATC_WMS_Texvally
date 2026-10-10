@@ -1,0 +1,1776 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="RHLWMS_LIVEModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BinMaster">
+          <Key>
+            <PropertyRef Name="BinId" />
+          </Key>
+          <Property Name="BinId" Type="int" Nullable="false" />
+          <Property Name="BinCode" Type="varchar" MaxLength="15" />
+          <Property Name="BinBarcode" Type="varchar" MaxLength="10" />
+          <Property Name="RegionId" Type="int" />
+          <Property Name="PTypeId" Type="int" />
+          <Property Name="OrderId" Type="int" />
+          <Property Name="ColumnId" Type="int" Nullable="false" />
+          <Property Name="StatusId" Type="int" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="int" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="MFlag" Type="int" />
+        </EntityType>
+        <EntityType Name="ColumnMaster">
+          <Key>
+            <PropertyRef Name="ColumnId" />
+          </Key>
+          <Property Name="ColumnId" Type="int" Nullable="false" />
+          <Property Name="ColumnCode" Type="varchar" MaxLength="10" />
+          <Property Name="OrderId" Type="int" />
+          <Property Name="RackId" Type="int" Nullable="false" />
+          <Property Name="StatusId" Type="int" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="int" />
+          <Property Name="ModifiedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ItemMaster">
+          <Key>
+            <PropertyRef Name="ItemId" />
+          </Key>
+          <Property Name="ItemId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ItemCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="ItemName" Type="nvarchar" MaxLength="100" />
+          <Property Name="FrgnName" Type="nvarchar" MaxLength="100" />
+          <Property Name="ItmsGrpCod" Type="smallint" />
+          <Property Name="BuyUnitMsr" Type="nvarchar" MaxLength="100" />
+          <Property Name="SalUnitMsr" Type="nvarchar" MaxLength="100" />
+          <Property Name="PurPackMsr" Type="nvarchar" MaxLength="50" />
+          <Property Name="PurPackUn" Type="numeric" Precision="19" Scale="6" />
+          <Property Name="SalPackMsr" Type="nvarchar" MaxLength="30" />
+          <Property Name="SalPackUn" Type="numeric" Precision="19" Scale="6" />
+          <Property Name="DataSource" Type="char" MaxLength="1" />
+          <Property Name="U_Size" Type="nvarchar" MaxLength="100" />
+          <Property Name="U_Style" Type="nvarchar" MaxLength="100" />
+          <Property Name="U_SubGrp1" Type="nvarchar" MaxLength="100" />
+          <Property Name="U_SubGrp2" Type="nvarchar" MaxLength="100" />
+          <Property Name="U_SubGrp3" Type="nvarchar" MaxLength="100" />
+          <Property Name="U_SubGrp4" Type="nvarchar" MaxLength="100" />
+          <Property Name="U_SubGrp5" Type="nvarchar" MaxLength="100" />
+          <Property Name="U_SubGrp6" Type="nvarchar" MaxLength="100" />
+          <Property Name="U_SubGrp7" Type="nvarchar" MaxLength="100" />
+          <Property Name="U_SubGrp8" Type="nvarchar" MaxLength="100" />
+          <Property Name="U_MinStock" Type="int" />
+          <Property Name="U_MaxStock" Type="int" />
+          <Property Name="U_Rack" Type="nvarchar" MaxLength="10" />
+          <Property Name="U_SRCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="U_SRName" Type="nvarchar" MaxLength="70" />
+          <Property Name="U_Rack4" Type="nvarchar" MaxLength="70" />
+          <Property Name="U_HSNCODE" Type="nvarchar" MaxLength="8" />
+          <Property Name="U_brandgroup" Type="nvarchar" MaxLength="50" />
+          <Property Name="U_SizeGroup" Type="nvarchar" MaxLength="20" />
+          <Property Name="U_scode" Type="nvarchar" MaxLength="15" />
+          <Property Name="U_Division" Type="nvarchar" MaxLength="40" />
+          <Property Name="U_Subgrp9" Type="nvarchar" MaxLength="100" />
+          <Property Name="U_OldBrand" Type="nvarchar" MaxLength="100" />
+          <Property Name="U_PackQty" Type="nvarchar" MaxLength="10" />
+          <Property Name="U_MisMainGrp" Type="nvarchar" MaxLength="100" />
+          <Property Name="U_MisSubGrp" Type="nvarchar" MaxLength="100" />
+          <Property Name="StatusId" Type="int" />
+          <Property Name="CrDate" Type="datetime" />
+          <Property Name="UDate" Type="datetime" />
+          <Property Name="SetFlag" Type="char" MaxLength="1" />
+          <Property Name="PIFlag" Type="int" />
+          <Property Name="PIDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="LevelMaster">
+          <Key>
+            <PropertyRef Name="LevelId" />
+          </Key>
+          <Property Name="LevelId" Type="int" Nullable="false" />
+          <Property Name="LevelCode" Type="varchar" MaxLength="10" />
+          <Property Name="OrderId" Type="int" />
+          <Property Name="StatusId" Type="int" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="int" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="WId" Type="int" />
+        </EntityType>
+        <EntityType Name="PackingTypeMaster">
+          <Key>
+            <PropertyRef Name="PTypeId" />
+          </Key>
+          <Property Name="PTypeId" Type="int" Nullable="false" />
+          <Property Name="PTName" Type="varchar" MaxLength="50" />
+          <Property Name="Inward" Type="int" />
+          <Property Name="setcheck" Type="int" />
+          <Property Name="SetBinningFlag" Type="int" />
+          <Property Name="BTOBFlag" Type="int" />
+          <Property Name="RegionAssignFlag" Type="int" />
+          <Property Name="RecBinFlag" Type="int" />
+          <Property Name="WId" Type="int" />
+        </EntityType>
+        <EntityType Name="RackMaster">
+          <Key>
+            <PropertyRef Name="RackId" />
+          </Key>
+          <Property Name="RackId" Type="int" Nullable="false" />
+          <Property Name="RackCode" Type="varchar" MaxLength="10" />
+          <Property Name="OrderId" Type="int" />
+          <Property Name="LevelId" Type="int" Nullable="false" />
+          <Property Name="StatusId" Type="int" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="int" />
+          <Property Name="ModifiedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TableMaster">
+          <Key>
+            <PropertyRef Name="TabId" />
+          </Key>
+          <Property Name="TabId" Type="int" Nullable="false" />
+          <Property Name="TableCode" Type="varchar" MaxLength="50" />
+          <Property Name="ProcessName" Type="varchar" MaxLength="20" />
+          <Property Name="TeamId" Type="int" />
+          <Property Name="StatusId" Type="int" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="int" />
+          <Property Name="ModifiedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TrolleyMaster">
+          <Key>
+            <PropertyRef Name="TrolleyId" />
+          </Key>
+          <Property Name="TrolleyId" Type="int" Nullable="false" />
+          <Property Name="TrolleyCode" Type="varchar" MaxLength="50" />
+          <Property Name="StatusId" Type="int" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="int" />
+          <Property Name="ModifiedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="UserMaster">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="bigint" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MobileNo" Type="nvarchar" MaxLength="15" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" />
+          <Property Name="UserCode" Type="nvarchar" MaxLength="20" />
+          <Property Name="EmployeeId" Type="int" />
+          <Property Name="RoleId" Type="int" Nullable="false" />
+          <Property Name="StatusId" Type="int" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="int" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="LastLogin" Type="datetime" />
+          <Property Name="PasswordChange" Type="datetime" />
+          <Property Name="TokenId" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <Association Name="FK_ColumnMaster_RackMaster">
+          <End Role="RackMaster" Type="Self.RackMaster" Multiplicity="1" />
+          <End Role="ColumnMaster" Type="Self.ColumnMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RackMaster">
+              <PropertyRef Name="RackId" />
+            </Principal>
+            <Dependent Role="ColumnMaster">
+              <PropertyRef Name="RackId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RackMaster_LevelMaster">
+          <End Role="LevelMaster" Type="Self.LevelMaster" Multiplicity="1" />
+          <End Role="RackMaster" Type="Self.RackMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LevelMaster">
+              <PropertyRef Name="LevelId" />
+            </Principal>
+            <Dependent Role="RackMaster">
+              <PropertyRef Name="LevelId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="AnnualInventory_WMSStock_View" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="filter" Type="varchar" Mode="In" />
+          <Parameter Name="TypeId" Type="int" Mode="In" />
+          <Parameter Name="processId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="AutoComp_SampleItem" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="filter" Type="varchar" Mode="In" />
+          <Parameter Name="Id" Type="char" Mode="In" />
+        </Function>
+        <Function Name="AutoGet_MCBarcode" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="AutoGet_MRPBatchBatch" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BUId" Type="bigint" Mode="In" />
+          <Parameter Name="ItemId" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="AutomatedMRPPrintingTrollyWiseNew" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DCID" Type="bigint" Mode="In" />
+          <Parameter Name="TrolleyCode" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="AutomatedMRPRePrintingDCIDWise" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DCID" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="AutoMRP_ItemCompleteSave" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DCId" Type="bigint" Mode="In" />
+          <Parameter Name="ItemId" Type="bigint" Mode="In" />
+          <Parameter Name="LineNum" Type="int" Mode="In" />
+        </Function>
+        <Function Name="AutoMRP_ItemCompleteSaveNew" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DCId" Type="bigint" Mode="In" />
+          <Parameter Name="ItemId" Type="bigint" Mode="In" />
+          <Parameter Name="LineNum" Type="int" Mode="In" />
+          <Parameter Name="Data" Type="xml" Mode="In" />
+        </Function>
+        <Function Name="AutoMRP_Print" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SAPDCNum" Type="bigint" Mode="In" />
+          <Parameter Name="TrolleyCode" Type="nvarchar" Mode="In" />
+          <Parameter Name="YearId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="AutoMRP_RePrint" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SAPDCNum" Type="bigint" Mode="In" />
+          <Parameter Name="YearId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Combo_ProcessMaster_Get" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="GetTrolleyForMRPAutoPrint" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SAPDocNum" Type="bigint" Mode="In" />
+          <Parameter Name="YearId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ItemConversion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Conversionid" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="MRPDetailView" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DCId" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="MRPLabelPrintView" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="soref" Type="nvarchar" Mode="In" />
+          <Parameter Name="deleveryno" Type="nvarchar" Mode="In" />
+          <Parameter Name="Invoiceref" Type="nvarchar" Mode="In" />
+          <Parameter Name="trollyref" Type="nvarchar" Mode="In" />
+          <Parameter Name="customer" Type="nvarchar" Mode="In" />
+          <Parameter Name="state" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="MRPWorkOrderDetailView" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="WorkOrderId" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="SalesDCBundle_TableSave" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserId" Type="int" Mode="In" />
+          <Parameter Name="DCNum" Type="bigint" Mode="In" />
+          <Parameter Name="TableCode" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SalesReturn_Print" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SalesReturnId" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="SampleReq_Print" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SAPDocNum" Type="int" Mode="In" />
+          <Parameter Name="YearId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SampleReturn_Print" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SampleReturnId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="StateConversion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Conversionid" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="TrollyDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Trollycode" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="RHLWMS_LIVEModelStoreContainer">
+          <EntitySet Name="BinMaster" EntityType="Self.BinMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ColumnMaster" EntityType="Self.ColumnMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ItemMaster" EntityType="Self.ItemMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LevelMaster" EntityType="Self.LevelMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PackingTypeMaster" EntityType="Self.PackingTypeMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RackMaster" EntityType="Self.RackMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TableMaster" EntityType="Self.TableMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TrolleyMaster" EntityType="Self.TrolleyMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserMaster" EntityType="Self.UserMaster" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_ColumnMaster_RackMaster" Association="Self.FK_ColumnMaster_RackMaster">
+            <End Role="RackMaster" EntitySet="RackMaster" />
+            <End Role="ColumnMaster" EntitySet="ColumnMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RackMaster_LevelMaster" Association="Self.FK_RackMaster_LevelMaster">
+            <End Role="LevelMaster" EntitySet="LevelMaster" />
+            <End Role="RackMaster" EntitySet="RackMaster" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RHLWMS_LIVEModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TrolleyMaster">
+          <Key>
+            <PropertyRef Name="TrolleyId" />
+          </Key>
+          <Property Name="TrolleyId" Type="Int32" Nullable="false" />
+          <Property Name="TrolleyCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StatusId" Type="Int32" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="ATCWMS_LIVEEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TrolleyMasters" EntityType="Self.TrolleyMaster" />
+          <FunctionImport Name="MRPDetailView" ReturnType="Collection(RHLWMS_LIVEModel.MRPDetailView_Result)">
+          <Parameter Name="DCId" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <EntitySet Name="BinMasters" EntityType="RHLWMS_LIVEModel.BinMaster" />
+          <FunctionImport Name="AutoGet_MCBarcode" ReturnType="Collection(String)" />
+          <FunctionImport Name="AutoGet_MRPBatchBatch" ReturnType="Collection(String)">
+            <Parameter Name="BUId" Mode="In" Type="Int64" />
+            <Parameter Name="ItemId" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="AutomatedMRPPrintingTrollyWiseNew" ReturnType="Collection(RHLWMS_LIVEModel.AutomatedMRPPrintingTrollyWiseNew_Result)">
+            <Parameter Name="DCID" Mode="In" Type="Int64" />
+            <Parameter Name="TrolleyCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="AutoMRP_ItemCompleteSaveNew" ReturnType="Collection(String)">
+            <Parameter Name="DCId" Mode="In" Type="Int64" />
+            <Parameter Name="ItemId" Mode="In" Type="Int64" />
+            <Parameter Name="LineNum" Mode="In" Type="Int32" />
+            <Parameter Name="Data" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="AutomatedMRPRePrintingDCIDWise" ReturnType="Collection(RHLWMS_LIVEModel.AutomatedMRPRePrintingDCIDWise_Result)">
+          <Parameter Name="DCID" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="AutoMRP_ItemCompleteSave" ReturnType="Collection(String)">
+            <Parameter Name="DCId" Mode="In" Type="Int64" />
+            <Parameter Name="ItemId" Mode="In" Type="Int64" />
+            <Parameter Name="LineNum" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="ColumnMasters" EntityType="RHLWMS_LIVEModel.ColumnMaster" />
+          <EntitySet Name="LevelMasters" EntityType="RHLWMS_LIVEModel.LevelMaster" />
+          <EntitySet Name="RackMasters" EntityType="RHLWMS_LIVEModel.RackMaster" />
+          <AssociationSet Name="FK_ColumnMaster_RackMaster" Association="RHLWMS_LIVEModel.FK_ColumnMaster_RackMaster">
+            <End Role="RackMaster" EntitySet="RackMasters" />
+            <End Role="ColumnMaster" EntitySet="ColumnMasters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RackMaster_LevelMaster" Association="RHLWMS_LIVEModel.FK_RackMaster_LevelMaster">
+            <End Role="LevelMaster" EntitySet="LevelMasters" />
+            <End Role="RackMaster" EntitySet="RackMasters" />
+          </AssociationSet>
+          <EntitySet Name="TableMasters" EntityType="RHLWMS_LIVEModel.TableMaster" />
+          <FunctionImport Name="StateConversion" ReturnType="Collection(RHLWMS_LIVEModel.StateConversion_Result)">
+          <Parameter Name="Conversionid" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <EntitySet Name="UserMasters" EntityType="RHLWMS_LIVEModel.UserMaster" />
+          <FunctionImport Name="ItemConversion" ReturnType="Collection(RHLWMS_LIVEModel.ItemConversion_Result)">
+          <Parameter Name="Conversionid" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="MRPLabelPrintView" ReturnType="Collection(RHLWMS_LIVEModel.MRPLabelPrintView_Result)">
+            <Parameter Name="soref" Mode="In" Type="String" />
+            <Parameter Name="deleveryno" Mode="In" Type="String" />
+            <Parameter Name="Invoiceref" Mode="In" Type="String" />
+            <Parameter Name="trollyref" Mode="In" Type="String" />
+            <Parameter Name="customer" Mode="In" Type="String" />
+            <Parameter Name="state" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="MRPWorkOrderDetailView" ReturnType="Collection(RHLWMS_LIVEModel.MRPWorkOrderDetailView_Result)">
+          <Parameter Name="WorkOrderId" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="SalesDCBundle_TableSave" ReturnType="Collection(String)">
+            <Parameter Name="UserId" Mode="In" Type="Int32" />
+            <Parameter Name="DCNum" Mode="In" Type="Int64" />
+            <Parameter Name="TableCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="TrollyDetail" ReturnType="Collection(RHLWMS_LIVEModel.TrollyDetail_Result)">
+          <Parameter Name="Trollycode" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="PackingTypeMasters" EntityType="RHLWMS_LIVEModel.PackingTypeMaster" />
+          <FunctionImport Name="AnnualInventory_WMSStock_View" ReturnType="Collection(RHLWMS_LIVEModel.AnnualInventory_WMSStock_View_Result)">
+            <Parameter Name="filter" Mode="In" Type="String" />
+            <Parameter Name="TypeId" Mode="In" Type="Int32" />
+            <Parameter Name="processId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="ItemMasters" EntityType="RHLWMS_LIVEModel.ItemMaster" />
+          <FunctionImport Name="Combo_ProcessMaster_Get" ReturnType="Collection(RHLWMS_LIVEModel.Combo_ProcessMaster_Get_Result)">
+          <Parameter Name="id" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="GetTrolleyForMRPAutoPrint" ReturnType="Collection(RHLWMS_LIVEModel.GetTrolleyForMRPAutoPrint_Result)">
+            <Parameter Name="SAPDocNum" Mode="In" Type="Int64" />
+            <Parameter Name="YearId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="AutoComp_SampleItem" ReturnType="Collection(String)">
+            <Parameter Name="filter" Mode="In" Type="String" />
+            <Parameter Name="Id" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="AutoMRP_Print" ReturnType="Collection(RHLWMS_LIVEModel.AutoMRP_Print_Result)">
+            <Parameter Name="SAPDCNum" Mode="In" Type="Int64" />
+            <Parameter Name="TrolleyCode" Mode="In" Type="String" />
+            <Parameter Name="YearId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="AutoMRP_RePrint" ReturnType="Collection(RHLWMS_LIVEModel.AutoMRP_RePrint_Result)">
+            <Parameter Name="SAPDCNum" Mode="In" Type="Int64" />
+            <Parameter Name="YearId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SalesReturn_Print" ReturnType="Collection(RHLWMS_LIVEModel.SalesReturn_Print_Result)">
+          <Parameter Name="SalesReturnId" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="SampleReturn_Print" ReturnType="Collection(RHLWMS_LIVEModel.SampleReturn_Print_Result)">
+          <Parameter Name="SampleReturnId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SampleReq_Print" ReturnType="Collection(RHLWMS_LIVEModel.SampleReq_Print_Result)">
+            <Parameter Name="SAPDocNum" Mode="In" Type="Int32" />
+            <Parameter Name="YearId" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="MRPDetailView_Result">
+          <Property Type="Int64" Name="DCId" Nullable="false" />
+          <Property Type="Int64" Name="SAPDocNum" Nullable="true" />
+          <Property Type="String" Name="DCMonth" Nullable="true" MaxLength="3" />
+          <Property Type="Int32" Name="DCYear" Nullable="true" />
+          <Property Type="String" Name="ItemCode" Nullable="false" MaxLength="50" />
+          <Property Type="Int64" Name="ItemId" Nullable="false" />
+          <Property Type="Int64" Name="TrallyId" Nullable="true" />
+          <Property Type="String" Name="TrolleyCode" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="LineNum" Nullable="true" />
+          <Property Type="String" Name="ItemName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Style" Nullable="true" MaxLength="100" />
+          <Property Type="Decimal" Name="Quantity" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="String" Name="U_SRCode" Nullable="true" MaxLength="20" />
+          <Property Type="Int32" Name="DocNum" Nullable="true" />
+          <Property Type="String" Name="QULTY" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="MRP" Nullable="true" MaxLength="44" />
+          <Property Type="Decimal" Name="Price" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="SalPrice" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Single" Name="boxQuantity" Nullable="true" />
+          <Property Type="String" Name="Sizes" Nullable="true" MaxLength="123" />
+          <Property Type="String" Name="TreeType" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="Content" Nullable="true" />
+          <Property Type="String" Name="HankieDoubleMRP" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="Hankieqty" Nullable="true" MaxLength="12" />
+        </ComplexType>
+        <EntityType Name="BinMaster">
+          <Key>
+            <PropertyRef Name="BinId" />
+          </Key>
+          <Property Name="BinId" Type="Int32" Nullable="false" />
+          <Property Name="BinCode" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="BinBarcode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="RegionId" Type="Int32" />
+          <Property Name="PTypeId" Type="Int32" />
+          <Property Name="OrderId" Type="Int32" />
+          <Property Name="ColumnId" Type="Int32" Nullable="false" />
+          <Property Name="StatusId" Type="Int32" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="MFlag" Type="Int32" />
+        </EntityType>
+        <ComplexType Name="AutomatedMRPPrintingTrollyWiseNew_Result">
+          <Property Type="String" Name="TrolleyCode" Nullable="true" MaxLength="50" />
+          <Property Type="Int64" Name="TrallyId" Nullable="true" />
+          <Property Type="String" Name="BINID" Nullable="true" MaxLength="10" />
+          <Property Type="Int64" Name="DCId" Nullable="false" />
+          <Property Type="Int64" Name="DCDetId" Nullable="false" />
+          <Property Type="Int64" Name="SAPDocNum" Nullable="true" />
+          <Property Type="Int64" Name="SAPDCId" Nullable="true" />
+          <Property Type="String" Name="cardcode" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="DCMonth" Nullable="true" MaxLength="3" />
+          <Property Type="Int32" Name="DCYear" Nullable="true" />
+          <Property Type="DateTime" Name="SAPDCPostDate" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="DocNum" Nullable="true" />
+          <Property Type="Int32" Name="DocEntry" Nullable="true" />
+          <Property Type="String" Name="ItemName" Nullable="true" MaxLength="100" />
+          <Property Type="Decimal" Name="Price" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="String" Name="Price1" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="CustomeType" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="CardName" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Partytype" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="STATE" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="U_SalPriceCode" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Symbol" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="ItemCode" Nullable="true" MaxLength="50" />
+          <Property Type="Int64" Name="ItemId" Nullable="true" />
+          <Property Type="String" Name="U_SRCode" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="QULT" Nullable="true" MaxLength="4000" />
+          <Property Type="String" Name="Contents" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Size" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Sizes" Nullable="true" MaxLength="803" />
+          <Property Type="String" Name="dhoti" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="shirting" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="towel" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="belt" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Content" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="invntitem" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="u_itemgrp" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="boxQuantity" Nullable="true" />
+          <Property Type="Int32" Name="LineNum" Nullable="true" />
+          <Property Type="String" Name="TreeType" Nullable="true" MaxLength="1" />
+          <Property Type="Int32" Name="quantity" Nullable="true" />
+          <Property Type="Decimal" Name="SalPackUn" Nullable="true" Precision="19" Scale="6" />
+          <Property Type="Decimal" Name="HankieDoubleMRP" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="String" Name="HankieDoubleMRP1" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="HankieDoubleMRPs" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="Hankieqty" Nullable="true" MaxLength="12" />
+          <Property Type="String" Name="Remark" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="PurPackUn" Nullable="true" />
+          <Property Type="Int32" Name="Pack_Qty" Nullable="false" />
+          <Property Type="Int32" Name="Packstatus" Nullable="false" />
+          <Property Type="Int32" Name="MinPack_Qty" Nullable="false" />
+          <Property Type="String" Name="SAPDocNumP" Nullable="true" MaxLength="31" />
+          <Property Type="Int32" Name="LabelTypeId" Nullable="true" />
+          <Property Type="String" Name="LableTypeName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PrinterName" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="LabelTypeId1" Nullable="false" />
+          <Property Type="String" Name="LableTypeName1" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="PrinterName1" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="SizeRemark" Nullable="false" MaxLength="200" />
+        </ComplexType>
+        <ComplexType Name="AutomatedMRPRePrintingDCIDWise_Result">
+          <Property Type="String" Name="TrolleyCode" Nullable="true" MaxLength="50" />
+          <Property Type="Int64" Name="TrallyId" Nullable="true" />
+          <Property Type="Int64" Name="DCId" Nullable="false" />
+          <Property Type="Int64" Name="SAPDocNum" Nullable="true" />
+          <Property Type="Int64" Name="SAPDCId" Nullable="true" />
+          <Property Type="String" Name="cardcode" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="DCMonth" Nullable="true" MaxLength="3" />
+          <Property Type="Int32" Name="DCYear" Nullable="true" />
+          <Property Type="DateTime" Name="SAPDCPostDate" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="DocNum" Nullable="true" />
+          <Property Type="Int32" Name="DocEntry" Nullable="true" />
+          <Property Type="String" Name="ItemName" Nullable="true" MaxLength="100" />
+          <Property Type="Decimal" Name="Price" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="String" Name="Price1" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="CustomeType" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="Symbol" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="ItemCode" Nullable="true" MaxLength="50" />
+          <Property Type="Int64" Name="ItemId" Nullable="true" />
+          <Property Type="String" Name="U_SRCode" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="QULT" Nullable="true" MaxLength="4000" />
+          <Property Type="String" Name="CardName" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Partytype" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="STATE" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="U_SalPriceCode" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Size" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Sizes" Nullable="true" MaxLength="803" />
+          <Property Type="String" Name="dhoti" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="shirting" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="towel" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="belt" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="u_itemgrp" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Contents" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Content" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="boxQuantity" Nullable="true" />
+          <Property Type="Int32" Name="LineNum" Nullable="true" />
+          <Property Type="String" Name="TreeType" Nullable="true" MaxLength="1" />
+          <Property Type="Int32" Name="quantity" Nullable="true" />
+          <Property Type="Decimal" Name="SalPackUn" Nullable="true" Precision="19" Scale="6" />
+          <Property Type="Decimal" Name="HankieDoubleMRP" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="String" Name="HankieDoubleMRP1" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="HankieDoubleMRPs" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="Hankieqty" Nullable="true" MaxLength="12" />
+          <Property Type="String" Name="Remark" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="PurPackUn" Nullable="true" />
+          <Property Type="Int32" Name="Pack_Qty" Nullable="true" />
+          <Property Type="String" Name="SAPDocNumP" Nullable="true" MaxLength="31" />
+          <Property Type="Int32" Name="LabelTypeId" Nullable="true" />
+          <Property Type="String" Name="LableTypeName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PrinterName" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="LabelTypeId1" Nullable="false" />
+          <Property Type="String" Name="LableTypeName1" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="PrinterName1" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="SizeRemark" Nullable="false" MaxLength="200" />
+        </ComplexType>
+        <EntityType Name="ColumnMaster">
+          <Key>
+            <PropertyRef Name="ColumnId" />
+          </Key>
+          <Property Name="ColumnId" Type="Int32" Nullable="false" />
+          <Property Name="ColumnCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="OrderId" Type="Int32" />
+          <Property Name="RackId" Type="Int32" Nullable="false" />
+          <Property Name="StatusId" Type="Int32" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="RackMaster" Relationship="RHLWMS_LIVEModel.FK_ColumnMaster_RackMaster" FromRole="ColumnMaster" ToRole="RackMaster" />
+        </EntityType>
+        <EntityType Name="LevelMaster">
+          <Key>
+            <PropertyRef Name="LevelId" />
+          </Key>
+          <Property Name="LevelId" Type="Int32" Nullable="false" />
+          <Property Name="LevelCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="OrderId" Type="Int32" />
+          <Property Name="StatusId" Type="Int32" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="RackMasters" Relationship="RHLWMS_LIVEModel.FK_RackMaster_LevelMaster" FromRole="LevelMaster" ToRole="RackMaster" />
+          <Property Name="WId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="RackMaster">
+          <Key>
+            <PropertyRef Name="RackId" />
+          </Key>
+          <Property Name="RackId" Type="Int32" Nullable="false" />
+          <Property Name="RackCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="OrderId" Type="Int32" />
+          <Property Name="LevelId" Type="Int32" Nullable="false" />
+          <Property Name="StatusId" Type="Int32" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="ColumnMasters" Relationship="RHLWMS_LIVEModel.FK_ColumnMaster_RackMaster" FromRole="RackMaster" ToRole="ColumnMaster" />
+          <NavigationProperty Name="LevelMaster" Relationship="RHLWMS_LIVEModel.FK_RackMaster_LevelMaster" FromRole="RackMaster" ToRole="LevelMaster" />
+        </EntityType>
+        <Association Name="FK_ColumnMaster_RackMaster">
+          <End Type="RHLWMS_LIVEModel.RackMaster" Role="RackMaster" Multiplicity="1" />
+          <End Type="RHLWMS_LIVEModel.ColumnMaster" Role="ColumnMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RackMaster">
+              <PropertyRef Name="RackId" />
+            </Principal>
+            <Dependent Role="ColumnMaster">
+              <PropertyRef Name="RackId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RackMaster_LevelMaster">
+          <End Type="RHLWMS_LIVEModel.LevelMaster" Role="LevelMaster" Multiplicity="1" />
+          <End Type="RHLWMS_LIVEModel.RackMaster" Role="RackMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LevelMaster">
+              <PropertyRef Name="LevelId" />
+            </Principal>
+            <Dependent Role="RackMaster">
+              <PropertyRef Name="LevelId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TableMaster">
+          <Key>
+            <PropertyRef Name="TabId" />
+          </Key>
+          <Property Name="TabId" Type="Int32" Nullable="false" />
+          <Property Name="TableCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProcessName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TeamId" Type="Int32" />
+          <Property Name="StatusId" Type="Int32" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+        </EntityType>
+        <ComplexType Name="StateConversion_Result">
+          <Property Type="String" Name="CVMonth" Nullable="true" MaxLength="3" />
+          <Property Type="Int32" Name="CVYear" Nullable="true" />
+          <Property Type="Int64" Name="ConversionId" Nullable="false" />
+          <Property Type="String" Name="FromCode" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="FromDesc" Nullable="true" MaxLength="100" />
+          <Property Type="Decimal" Name="FromRecQty" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="String" Name="ToCode" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="QULT" Nullable="true" MaxLength="100" />
+          <Property Type="Decimal" Name="RecQty" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Int32" Name="Pack_Qty" Nullable="false" />
+          <Property Type="Int32" Name="FromRegionId" Nullable="true" />
+          <Property Type="String" Name="FromState" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="ToRegionId" Nullable="true" />
+          <Property Type="String" Name="ToState" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="boxQuantity" Nullable="true" />
+          <Property Type="Decimal" Name="MRP" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Int32" Name="LabelTypeId" Nullable="true" />
+          <Property Type="String" Name="NormalPrinterName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PrinterName" Nullable="false" MaxLength="100" />
+          <Property Type="Int32" Name="LabelTypeId2" Nullable="true" />
+          <Property Type="String" Name="BoxPrinterName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="PrinterName1" Nullable="false" MaxLength="100" />
+        </ComplexType>
+        <EntityType Name="UserMaster">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int64" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MobileNo" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="UserCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeId" Type="Int32" />
+          <Property Name="RoleId" Type="Int32" Nullable="false" />
+          <Property Name="StatusId" Type="Int32" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="LastLogin" Type="DateTime" Precision="3" />
+          <Property Name="PasswordChange" Type="DateTime" Precision="3" />
+          <Property Name="TokenId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <ComplexType Name="ItemConversion_Result">
+          <Property Type="Int64" Name="ConversionId" Nullable="false" />
+          <Property Type="String" Name="FromCode" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="FromDesc" Nullable="true" MaxLength="100" />
+          <Property Type="Decimal" Name="FromRecQty" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="String" Name="ToCode" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="ToDesc" Nullable="true" MaxLength="100" />
+          <Property Type="Decimal" Name="RecQty" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Int32" Name="Pack_Qty" Nullable="true" />
+          <Property Type="Decimal" Name="Price" Nullable="true" Precision="19" Scale="6" />
+          <Property Type="Int32" Name="LabelTypeId" Nullable="true" />
+          <Property Type="String" Name="NormalPrinterName" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="DocEntry" Nullable="true" />
+          <Property Type="Int32" Name="DocNum" Nullable="true" />
+          <Property Type="String" Name="PrinterName" Nullable="false" MaxLength="100" />
+          <Property Type="Int32" Name="LabelTypeId2" Nullable="true" />
+          <Property Type="String" Name="BoxPrinterName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="PrinterName1" Nullable="false" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="MRPLabelPrintView_Result">
+          <Property Type="Int64" Name="DeliveryNo" Nullable="false" />
+          <Property Type="Int64" Name="SAPDocNum" Nullable="true" />
+          <Property Type="String" Name="CustomerName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="code" Nullable="true" MaxLength="15" />
+          <Property Type="Int32" Name="SaleOrder" Nullable="true" />
+          <Property Type="Int64" Name="InvoiceNo" Nullable="true" />
+          <Property Type="Int32" Name="DODocEntry" Nullable="true" />
+          <Property Type="Int64" Name="OutwardId" Nullable="false" />
+          <Property Type="Int64" Name="PickId" Nullable="false" />
+          <Property Type="Int32" Name="TrolleyId" Nullable="true" />
+          <Property Type="String" Name="TrolleyCode" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="State" Nullable="true" MaxLength="3" />
+          <Property Type="Decimal" Name="TrollyQuantity" Nullable="true" Precision="38" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="MRPWorkOrderDetailView_Result">
+          <Property Type="Int64" Name="WorkOrderId" Nullable="false" />
+          <Property Type="String" Name="WOType" Nullable="true" MaxLength="7" />
+          <Property Type="String" Name="WOWMonth" Nullable="true" MaxLength="3" />
+          <Property Type="Int32" Name="WOYear" Nullable="true" />
+          <Property Type="Int64" Name="ItemId" Nullable="true" />
+          <Property Type="String" Name="ItemCode" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="SetDscription" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Brand" Nullable="true" MaxLength="20" />
+          <Property Type="Single" Name="boxQuantity" Nullable="true" />
+          <Property Type="String" Name="Sizes" Nullable="true" MaxLength="182" />
+          <Property Type="String" Name="sizee" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Content" Nullable="true" MaxLength="100" />
+          <Property Type="Decimal" Name="quantity" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Int64" Name="DocNum" Nullable="true" />
+          <Property Type="String" Name="u_itemgrp" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="QULT" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="State" Nullable="true" MaxLength="10" />
+          <Property Type="Int32" Name="PurPackUn" Nullable="true" />
+          <Property Type="Int64" Name="DocEntry" Nullable="true" />
+          <Property Type="Decimal" Name="Price" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="String" Name="Price1" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="autocode" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Pack_Qty" Nullable="true" />
+          <Property Type="String" Name="Remark" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Hankieqty" Nullable="true" MaxLength="12" />
+          <Property Type="Int32" Name="LabelTypeId" Nullable="true" />
+          <Property Type="String" Name="NormalPrinterName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="PrinterName" Nullable="false" MaxLength="100" />
+          <Property Type="Int32" Name="LabelTypeId1" Nullable="true" />
+          <Property Type="String" Name="BoxPrinterName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="PrinterName1" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="SizeRemark" Nullable="false" MaxLength="200" />
+        </ComplexType>
+        <ComplexType Name="TrollyDetail_Result">
+          <Property Type="Int64" Name="TrallyId" Nullable="true" />
+          <Property Type="String" Name="TrolleyCode" Nullable="true" MaxLength="50" />
+          <Property Type="Int64" Name="DCId" Nullable="false" />
+          <Property Type="Int32" Name="DocNum" Nullable="true" />
+          <Property Type="String" Name="ItemName" Nullable="true" MaxLength="100" />
+          <Property Type="Decimal" Name="Price" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="String" Name="ItemCode" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Sizes" Nullable="true" MaxLength="123" />
+          <Property Type="Single" Name="boxQuantity" Nullable="true" />
+          <Property Type="Int32" Name="LineNum" Nullable="true" />
+          <Property Type="String" Name="TreeType" Nullable="true" MaxLength="1" />
+          <Property Type="Decimal" Name="quantity" Nullable="true" Precision="18" Scale="2" />
+        </ComplexType>
+        <EntityType Name="PackingTypeMaster">
+          <Key>
+            <PropertyRef Name="PTypeId" />
+          </Key>
+          <Property Name="PTypeId" Type="Int32" Nullable="false" />
+          <Property Name="PTName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Inward" Type="Int32" />
+          <Property Name="setcheck" Type="Int32" />
+          <Property Name="SetBinningFlag" Type="Int32" />
+          <Property Name="BTOBFlag" Type="Int32" />
+          <Property Name="RegionAssignFlag" Type="Int32" />
+          <Property Name="RecBinFlag" Type="Int32" />
+          <Property Name="WId" Type="Int32" />
+        </EntityType>
+        <ComplexType Name="AnnualInventory_WMSStock_View_Result">
+          <Property Type="Int64" Name="ItemId" Nullable="true" />
+          <Property Type="String" Name="ItemCode" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="ItemName" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="PTypeId" Nullable="false" />
+          <Property Type="String" Name="TypeName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Process" Nullable="false" MaxLength="27" />
+          <Property Type="Int32" Name="StockTypeId" Nullable="false" />
+          <Property Type="String" Name="RefNo" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Location" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="Qty" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Int64" Name="sno" Nullable="true" />
+          <Property Type="Int32" Name="PhysicalStock" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="ItemMaster">
+          <Key>
+            <PropertyRef Name="ItemId" />
+          </Key>
+          <Property Name="ItemId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ItemName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="FrgnName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ItmsGrpCod" Type="Int16" />
+          <Property Name="BuyUnitMsr" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SalUnitMsr" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PurPackMsr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PurPackUn" Type="Decimal" Precision="19" Scale="6" />
+          <Property Name="SalPackMsr" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="SalPackUn" Type="Decimal" Precision="19" Scale="6" />
+          <Property Name="DataSource" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="U_Size" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="U_Style" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="U_SubGrp1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="U_SubGrp2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="U_SubGrp3" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="U_SubGrp4" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="U_SubGrp5" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="U_SubGrp6" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="U_SubGrp7" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="U_SubGrp8" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="U_MinStock" Type="Int32" />
+          <Property Name="U_MaxStock" Type="Int32" />
+          <Property Name="U_Rack" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="U_SRCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="U_SRName" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Name="U_Rack4" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Name="U_HSNCODE" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="U_brandgroup" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="U_SizeGroup" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="U_scode" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="U_Division" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="U_Subgrp9" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="U_OldBrand" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="U_PackQty" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="U_MisMainGrp" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="U_MisSubGrp" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="StatusId" Type="Int32" />
+          <Property Name="CrDate" Type="DateTime" Precision="3" />
+          <Property Name="UDate" Type="DateTime" Precision="3" />
+          <Property Name="SetFlag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="PIFlag" Type="Int32" />
+          <Property Name="PIDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <ComplexType Name="Combo_ProcessMaster_Get_Result">
+          <Property Type="Int32" Name="StockTypeId" Nullable="false" />
+          <Property Type="String" Name="Process" Nullable="false" MaxLength="27" />
+        </ComplexType>
+        <ComplexType Name="GetTrolleyForMRPAutoPrint_Result">
+          <Property Type="Int64" Name="SAPDocNum" Nullable="true" />
+          <Property Type="DateTime" Name="DCDate" Nullable="true" Precision="23" />
+          <Property Type="Int64" Name="OrderPickingId" Nullable="true" />
+          <Property Type="Int32" Name="TrolleyId" Nullable="false" />
+          <Property Type="String" Name="TrolleyCode" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="AutoMRP_Print_Result">
+          <Property Type="String" Name="TrolleyCode" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="TrolleyId" Nullable="true" />
+          <Property Type="Int64" Name="DCId" Nullable="false" />
+          <Property Type="Int64" Name="OrderDetId" Nullable="true" />
+          <Property Type="Int64" Name="DCDetId" Nullable="false" />
+          <Property Type="Int64" Name="SAPDocNum" Nullable="true" />
+          <Property Type="Int64" Name="SAPDCId" Nullable="true" />
+          <Property Type="String" Name="cardcode" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="DCMonth" Nullable="true" MaxLength="3" />
+          <Property Type="String" Name="DCYear" Nullable="true" MaxLength="12" />
+          <Property Type="DateTime" Name="SAPDCPostDate" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="DocNum" Nullable="true" />
+          <Property Type="Int32" Name="DocEntry" Nullable="true" />
+          <Property Type="String" Name="ItemCode" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="ItemName" Nullable="true" MaxLength="100" />
+          <Property Type="Decimal" Name="Price" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="String" Name="CardName" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Partytype" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="U_State" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="U_SalPriceCode" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Symbol" Nullable="true" MaxLength="200" />
+          <Property Type="Int64" Name="ItemId" Nullable="true" />
+          <Property Type="String" Name="U_SRCode" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="QULT" Nullable="true" MaxLength="4000" />
+          <Property Type="String" Name="Content" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="TotalMRP" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="SetMRP" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Sizes" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Size" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="boxQuantity" Nullable="true" />
+          <Property Type="Int32" Name="LineNum" Nullable="true" />
+          <Property Type="Int32" Name="quantity" Nullable="true" />
+          <Property Type="String" Name="HankieDoubleMRPs" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="Hankieqty" Nullable="true" MaxLength="12" />
+          <Property Type="String" Name="Remark" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="PurPackUn" Nullable="true" />
+          <Property Type="Int32" Name="Pack_Qty" Nullable="false" />
+          <Property Type="Int32" Name="Packstatus" Nullable="false" />
+          <Property Type="Int32" Name="MinPack_Qty" Nullable="false" />
+          <Property Type="String" Name="SAPDocNumP" Nullable="true" MaxLength="31" />
+          <Property Type="Int32" Name="LabelTypeId" Nullable="false" />
+          <Property Type="String" Name="LableTypeName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="PrinterName" Nullable="false" MaxLength="100" />
+          <Property Type="Int32" Name="LabelTypeId1" Nullable="false" />
+          <Property Type="String" Name="LableTypeName1" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="PrinterName1" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="SizeRemark" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="Bom_MRP" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="Char1_ASCII" Nullable="true" />
+          <Property Type="Int32" Name="Char2_ASCII" Nullable="true" />
+          <Property Type="Int32" Name="Char3_ASCII" Nullable="true" />
+          <Property Type="Int32" Name="Char1_Unicode" Nullable="true" />
+          <Property Type="Int32" Name="Char2_Unicode" Nullable="true" />
+          <Property Type="Int32" Name="Char3_Unicode" Nullable="true" />
+          <Property Type="String" Name="treetype" Nullable="true" MaxLength="200" />
+        </ComplexType>
+        <ComplexType Name="AutoMRP_RePrint_Result">
+          <Property Type="String" Name="TrolleyCode" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="TrolleyId" Nullable="true" />
+          <Property Type="Int64" Name="DCId" Nullable="false" />
+          <Property Type="Int64" Name="OrderDetId" Nullable="true" />
+          <Property Type="Int64" Name="DCDetId" Nullable="false" />
+          <Property Type="Int64" Name="SAPDocNum" Nullable="true" />
+          <Property Type="Int64" Name="SAPDCId" Nullable="true" />
+          <Property Type="String" Name="cardcode" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="DCMonth" Nullable="true" MaxLength="3" />
+          <Property Type="String" Name="DCYear" Nullable="true" MaxLength="12" />
+          <Property Type="DateTime" Name="SAPDCPostDate" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="DocNum" Nullable="true" />
+          <Property Type="Int32" Name="DocEntry" Nullable="true" />
+          <Property Type="String" Name="ItemCode" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="ItemName" Nullable="true" MaxLength="100" />
+          <Property Type="Decimal" Name="Price" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="String" Name="CardName" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Partytype" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="U_State" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="U_SalPriceCode" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Symbol" Nullable="true" MaxLength="200" />
+          <Property Type="Int64" Name="ItemId" Nullable="true" />
+          <Property Type="String" Name="U_SRCode" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="QULT" Nullable="true" MaxLength="4000" />
+          <Property Type="String" Name="TotalMRP" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="SetMRP" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Sizes" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Size" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Content" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="boxQuantity" Nullable="true" />
+          <Property Type="Int32" Name="LineNum" Nullable="true" />
+          <Property Type="Int32" Name="quantity" Nullable="true" />
+          <Property Type="String" Name="HankieDoubleMRPs" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="Hankieqty" Nullable="true" MaxLength="12" />
+          <Property Type="String" Name="Remark" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="PurPackUn" Nullable="true" />
+          <Property Type="Int32" Name="Pack_Qty" Nullable="false" />
+          <Property Type="Int32" Name="Packstatus" Nullable="false" />
+          <Property Type="Int32" Name="MinPack_Qty" Nullable="false" />
+          <Property Type="String" Name="SAPDocNumP" Nullable="true" MaxLength="31" />
+          <Property Type="Int32" Name="LabelTypeId" Nullable="false" />
+          <Property Type="String" Name="LableTypeName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="PrinterName" Nullable="false" MaxLength="100" />
+          <Property Type="Int32" Name="LabelTypeId1" Nullable="false" />
+          <Property Type="String" Name="LableTypeName1" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="PrinterName1" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="SizeRemark" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="treetype" Nullable="true" MaxLength="200" />
+          <Property Type="Decimal" Name="purchaseqty" Nullable="true" Precision="19" Scale="6" />
+        </ComplexType>
+        <ComplexType Name="SalesReturn_Print_Result">
+          <Property Type="Int64" Name="SalesReturnId" Nullable="false" />
+          <Property Type="Int64" Name="SAPDocNum" Nullable="true" />
+          <Property Type="Int64" Name="SAPDocEntry" Nullable="true" />
+          <Property Type="Int64" Name="DcDtlId" Nullable="true" />
+          <Property Type="Int64" Name="DCId" Nullable="true" />
+          <Property Type="String" Name="Cardcode" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="CardName" Nullable="true" MaxLength="200" />
+          <Property Type="Int64" Name="ItemId" Nullable="true" />
+          <Property Type="String" Name="ItemCode" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="dscription" Nullable="true" MaxLength="200" />
+          <Property Type="Int64" Name="DCNum" Nullable="true" />
+          <Property Type="String" Name="WHSCode" Nullable="true" MaxLength="50" />
+          <Property Type="Int64" Name="SalReturnDtlid" Nullable="false" />
+          <Property Type="String" Name="TreeType" Nullable="true" MaxLength="1" />
+          <Property Type="Decimal" Name="quantity" Nullable="true" Precision="16" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="SampleReturn_Print_Result">
+          <Property Type="Int64" Name="SampleReturnId" Nullable="false" />
+          <Property Type="Int64" Name="SampleReturnDtlid" Nullable="false" />
+          <Property Type="String" Name="EmpNo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Employee_Name" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Cardcode" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="CardName" Nullable="true" MaxLength="500" />
+          <Property Type="Int64" Name="ItemId" Nullable="true" />
+          <Property Type="String" Name="ItemCode" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="dscription" Nullable="true" MaxLength="200" />
+          <Property Type="Decimal" Name="quantity" Nullable="true" Precision="16" Scale="2" />
+          <Property Type="String" Name="TreeType" Nullable="true" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="SampleReq_Print_Result">
+          <Property Type="Int64" Name="SampRequestId" Nullable="false" />
+          <Property Type="Int64" Name="SAPDocEntryID" Nullable="true" />
+          <Property Type="Int64" Name="SAPDocNum" Nullable="true" />
+          <Property Type="String" Name="FromWName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="ToWName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="OutwardTypeName" Nullable="true" MaxLength="50" />
+          <Property Type="Int64" Name="SampRequestDtlid" Nullable="false" />
+          <Property Type="DateTime" Name="docdate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="U_SRCode" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="cardcode" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="cardname" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="quality" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="ItemCode" Nullable="true" MaxLength="200" />
+          <Property Type="Int64" Name="ItemId" Nullable="true" />
+          <Property Type="String" Name="Contents" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="u_size" Nullable="true" MaxLength="200" />
+          <Property Type="Decimal" Name="quantity" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="boxqty" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="String" Name="STATE" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="TotalMRP" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="SetMRP" Nullable="false" />
+          <Property Type="Decimal" Name="ReqQty" Nullable="true" Precision="19" Scale="2" />
+          <Property Type="String" Name="TreeType" Nullable="true" MaxLength="1" />
+          <Property Type="Int32" Name="LabelTypeId" Nullable="false" />
+          <Property Type="String" Name="LableTypeName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="PrinterName" Nullable="false" MaxLength="100" />
+          <Property Type="Int32" Name="LabelTypeId1" Nullable="false" />
+          <Property Type="String" Name="LableTypeName1" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="PrinterName1" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="SizeRemark" Nullable="false" MaxLength="200" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RHLWMS_LIVEModelStoreContainer" CdmEntityContainer="ATCWMS_LIVEEntities">
+          <EntitySetMapping Name="TrolleyMasters">
+            <EntityTypeMapping TypeName="RHLWMS_LIVEModel.TrolleyMaster">
+              <MappingFragment StoreEntitySet="TrolleyMaster">
+                <ScalarProperty Name="TrolleyId" ColumnName="TrolleyId" />
+                <ScalarProperty Name="TrolleyCode" ColumnName="TrolleyCode" />
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="MRPDetailView" FunctionName="RHLWMS_LIVEModel.Store.MRPDetailView">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RHLWMS_LIVEModel.MRPDetailView_Result">
+                <ScalarProperty Name="DCId" ColumnName="DCId" />
+                <ScalarProperty Name="SAPDocNum" ColumnName="SAPDocNum" />
+                <ScalarProperty Name="DCMonth" ColumnName="DCMonth" />
+                <ScalarProperty Name="DCYear" ColumnName="DCYear" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+                <ScalarProperty Name="TrallyId" ColumnName="TrallyId" />
+                <ScalarProperty Name="TrolleyCode" ColumnName="TrolleyCode" />
+                <ScalarProperty Name="LineNum" ColumnName="LineNum" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="Style" ColumnName="Style" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="U_SRCode" ColumnName="U_SRCode" />
+                <ScalarProperty Name="DocNum" ColumnName="DocNum" />
+                <ScalarProperty Name="QULTY" ColumnName="QULTY" />
+                <ScalarProperty Name="MRP" ColumnName="MRP" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="SalPrice" ColumnName="SalPrice" />
+                <ScalarProperty Name="boxQuantity" ColumnName="boxQuantity" />
+                <ScalarProperty Name="Sizes" ColumnName="Sizes" />
+                <ScalarProperty Name="TreeType" ColumnName="TreeType" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="HankieDoubleMRP" ColumnName="HankieDoubleMRP" />
+                <ScalarProperty Name="Hankieqty" ColumnName="Hankieqty" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="BinMasters">
+            <EntityTypeMapping TypeName="RHLWMS_LIVEModel.BinMaster">
+              <MappingFragment StoreEntitySet="BinMaster">
+                <ScalarProperty Name="MFlag" ColumnName="MFlag" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+                <ScalarProperty Name="ColumnId" ColumnName="ColumnId" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="PTypeId" ColumnName="PTypeId" />
+                <ScalarProperty Name="RegionId" ColumnName="RegionId" />
+                <ScalarProperty Name="BinBarcode" ColumnName="BinBarcode" />
+                <ScalarProperty Name="BinCode" ColumnName="BinCode" />
+                <ScalarProperty Name="BinId" ColumnName="BinId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="AutoGet_MCBarcode" FunctionName="RHLWMS_LIVEModel.Store.AutoGet_MCBarcode" />
+          <FunctionImportMapping FunctionImportName="AutoGet_MRPBatchBatch" FunctionName="RHLWMS_LIVEModel.Store.AutoGet_MRPBatchBatch" />
+          <FunctionImportMapping FunctionImportName="AutomatedMRPPrintingTrollyWiseNew" FunctionName="RHLWMS_LIVEModel.Store.AutomatedMRPPrintingTrollyWiseNew">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RHLWMS_LIVEModel.AutomatedMRPPrintingTrollyWiseNew_Result">
+                <ScalarProperty Name="TrolleyCode" ColumnName="TrolleyCode" />
+                <ScalarProperty Name="TrallyId" ColumnName="TrallyId" />
+                <ScalarProperty Name="BINID" ColumnName="BINID" />
+                <ScalarProperty Name="DCId" ColumnName="DCId" />
+                <ScalarProperty Name="DCDetId" ColumnName="DCDetId" />
+                <ScalarProperty Name="SAPDocNum" ColumnName="SAPDocNum" />
+                <ScalarProperty Name="SAPDCId" ColumnName="SAPDCId" />
+                <ScalarProperty Name="cardcode" ColumnName="cardcode" />
+                <ScalarProperty Name="DCMonth" ColumnName="DCMonth" />
+                <ScalarProperty Name="DCYear" ColumnName="DCYear" />
+                <ScalarProperty Name="SAPDCPostDate" ColumnName="SAPDCPostDate" />
+                <ScalarProperty Name="DocNum" ColumnName="DocNum" />
+                <ScalarProperty Name="DocEntry" ColumnName="DocEntry" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Price1" ColumnName="Price1" />
+                <ScalarProperty Name="CustomeType" ColumnName="CustomeType" />
+                <ScalarProperty Name="CardName" ColumnName="CardName" />
+                <ScalarProperty Name="Partytype" ColumnName="Partytype" />
+                <ScalarProperty Name="STATE" ColumnName="STATE" />
+                <ScalarProperty Name="U_SalPriceCode" ColumnName="U_SalPriceCode" />
+                <ScalarProperty Name="Symbol" ColumnName="Symbol" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+                <ScalarProperty Name="U_SRCode" ColumnName="U_SRCode" />
+                <ScalarProperty Name="QULT" ColumnName="QULT" />
+                <ScalarProperty Name="Contents" ColumnName="Contents" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="Sizes" ColumnName="Sizes" />
+                <ScalarProperty Name="dhoti" ColumnName="dhoti" />
+                <ScalarProperty Name="shirting" ColumnName="shirting" />
+                <ScalarProperty Name="towel" ColumnName="towel" />
+                <ScalarProperty Name="belt" ColumnName="belt" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="invntitem" ColumnName="invntitem" />
+                <ScalarProperty Name="u_itemgrp" ColumnName="u_itemgrp" />
+                <ScalarProperty Name="boxQuantity" ColumnName="boxQuantity" />
+                <ScalarProperty Name="LineNum" ColumnName="LineNum" />
+                <ScalarProperty Name="TreeType" ColumnName="TreeType" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="SalPackUn" ColumnName="SalPackUn" />
+                <ScalarProperty Name="HankieDoubleMRP" ColumnName="HankieDoubleMRP" />
+                <ScalarProperty Name="HankieDoubleMRP1" ColumnName="HankieDoubleMRP1" />
+                <ScalarProperty Name="HankieDoubleMRPs" ColumnName="HankieDoubleMRPs" />
+                <ScalarProperty Name="Hankieqty" ColumnName="Hankieqty" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="PurPackUn" ColumnName="PurPackUn" />
+                <ScalarProperty Name="Pack_Qty" ColumnName="Pack_Qty" />
+                <ScalarProperty Name="Packstatus" ColumnName="Packstatus" />
+                <ScalarProperty Name="MinPack_Qty" ColumnName="MinPack_Qty" />
+                <ScalarProperty Name="SAPDocNumP" ColumnName="SAPDocNumP" />
+                <ScalarProperty Name="LabelTypeId" ColumnName="LabelTypeId" />
+                <ScalarProperty Name="LableTypeName" ColumnName="LableTypeName" />
+                <ScalarProperty Name="PrinterName" ColumnName="PrinterName" />
+                <ScalarProperty Name="LabelTypeId1" ColumnName="LabelTypeId1" />
+                <ScalarProperty Name="LableTypeName1" ColumnName="LableTypeName1" />
+                <ScalarProperty Name="PrinterName1" ColumnName="PrinterName1" />
+                <ScalarProperty Name="SizeRemark" ColumnName="SizeRemark" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="AutoMRP_ItemCompleteSaveNew" FunctionName="RHLWMS_LIVEModel.Store.AutoMRP_ItemCompleteSaveNew" />
+          <FunctionImportMapping FunctionImportName="AutomatedMRPRePrintingDCIDWise" FunctionName="RHLWMS_LIVEModel.Store.AutomatedMRPRePrintingDCIDWise">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RHLWMS_LIVEModel.AutomatedMRPRePrintingDCIDWise_Result">
+                <ScalarProperty Name="TrolleyCode" ColumnName="TrolleyCode" />
+                <ScalarProperty Name="TrallyId" ColumnName="TrallyId" />
+                <ScalarProperty Name="DCId" ColumnName="DCId" />
+                <ScalarProperty Name="SAPDocNum" ColumnName="SAPDocNum" />
+                <ScalarProperty Name="SAPDCId" ColumnName="SAPDCId" />
+                <ScalarProperty Name="cardcode" ColumnName="cardcode" />
+                <ScalarProperty Name="DCMonth" ColumnName="DCMonth" />
+                <ScalarProperty Name="DCYear" ColumnName="DCYear" />
+                <ScalarProperty Name="SAPDCPostDate" ColumnName="SAPDCPostDate" />
+                <ScalarProperty Name="DocNum" ColumnName="DocNum" />
+                <ScalarProperty Name="DocEntry" ColumnName="DocEntry" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Price1" ColumnName="Price1" />
+                <ScalarProperty Name="CustomeType" ColumnName="CustomeType" />
+                <ScalarProperty Name="Symbol" ColumnName="Symbol" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+                <ScalarProperty Name="U_SRCode" ColumnName="U_SRCode" />
+                <ScalarProperty Name="QULT" ColumnName="QULT" />
+                <ScalarProperty Name="CardName" ColumnName="CardName" />
+                <ScalarProperty Name="Partytype" ColumnName="Partytype" />
+                <ScalarProperty Name="STATE" ColumnName="STATE" />
+                <ScalarProperty Name="U_SalPriceCode" ColumnName="U_SalPriceCode" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="Sizes" ColumnName="Sizes" />
+                <ScalarProperty Name="dhoti" ColumnName="dhoti" />
+                <ScalarProperty Name="shirting" ColumnName="shirting" />
+                <ScalarProperty Name="towel" ColumnName="towel" />
+                <ScalarProperty Name="belt" ColumnName="belt" />
+                <ScalarProperty Name="u_itemgrp" ColumnName="u_itemgrp" />
+                <ScalarProperty Name="Contents" ColumnName="Contents" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="boxQuantity" ColumnName="boxQuantity" />
+                <ScalarProperty Name="LineNum" ColumnName="LineNum" />
+                <ScalarProperty Name="TreeType" ColumnName="TreeType" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="SalPackUn" ColumnName="SalPackUn" />
+                <ScalarProperty Name="HankieDoubleMRP" ColumnName="HankieDoubleMRP" />
+                <ScalarProperty Name="HankieDoubleMRP1" ColumnName="HankieDoubleMRP1" />
+                <ScalarProperty Name="HankieDoubleMRPs" ColumnName="HankieDoubleMRPs" />
+                <ScalarProperty Name="Hankieqty" ColumnName="Hankieqty" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="PurPackUn" ColumnName="PurPackUn" />
+                <ScalarProperty Name="Pack_Qty" ColumnName="Pack_Qty" />
+                <ScalarProperty Name="SAPDocNumP" ColumnName="SAPDocNumP" />
+                <ScalarProperty Name="LabelTypeId" ColumnName="LabelTypeId" />
+                <ScalarProperty Name="LableTypeName" ColumnName="LableTypeName" />
+                <ScalarProperty Name="PrinterName" ColumnName="PrinterName" />
+                <ScalarProperty Name="LabelTypeId1" ColumnName="LabelTypeId1" />
+                <ScalarProperty Name="LableTypeName1" ColumnName="LableTypeName1" />
+                <ScalarProperty Name="PrinterName1" ColumnName="PrinterName1" />
+                <ScalarProperty Name="SizeRemark" ColumnName="SizeRemark" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="AutoMRP_ItemCompleteSave" FunctionName="RHLWMS_LIVEModel.Store.AutoMRP_ItemCompleteSave" />
+          <EntitySetMapping Name="ColumnMasters">
+            <EntityTypeMapping TypeName="RHLWMS_LIVEModel.ColumnMaster">
+              <MappingFragment StoreEntitySet="ColumnMaster">
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+                <ScalarProperty Name="RackId" ColumnName="RackId" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="ColumnCode" ColumnName="ColumnCode" />
+                <ScalarProperty Name="ColumnId" ColumnName="ColumnId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LevelMasters">
+            <EntityTypeMapping TypeName="RHLWMS_LIVEModel.LevelMaster">
+              <MappingFragment StoreEntitySet="LevelMaster">
+                <ScalarProperty Name="WId" ColumnName="WId" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="LevelCode" ColumnName="LevelCode" />
+                <ScalarProperty Name="LevelId" ColumnName="LevelId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RackMasters">
+            <EntityTypeMapping TypeName="RHLWMS_LIVEModel.RackMaster">
+              <MappingFragment StoreEntitySet="RackMaster">
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+                <ScalarProperty Name="LevelId" ColumnName="LevelId" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="RackCode" ColumnName="RackCode" />
+                <ScalarProperty Name="RackId" ColumnName="RackId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TableMasters">
+            <EntityTypeMapping TypeName="RHLWMS_LIVEModel.TableMaster">
+              <MappingFragment StoreEntitySet="TableMaster">
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+                <ScalarProperty Name="TeamId" ColumnName="TeamId" />
+                <ScalarProperty Name="ProcessName" ColumnName="ProcessName" />
+                <ScalarProperty Name="TableCode" ColumnName="TableCode" />
+                <ScalarProperty Name="TabId" ColumnName="TabId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="StateConversion" FunctionName="RHLWMS_LIVEModel.Store.StateConversion">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RHLWMS_LIVEModel.StateConversion_Result">
+                <ScalarProperty Name="CVMonth" ColumnName="CVMonth" />
+                <ScalarProperty Name="CVYear" ColumnName="CVYear" />
+                <ScalarProperty Name="ConversionId" ColumnName="ConversionId" />
+                <ScalarProperty Name="FromCode" ColumnName="FromCode" />
+                <ScalarProperty Name="FromDesc" ColumnName="FromDesc" />
+                <ScalarProperty Name="FromRecQty" ColumnName="FromRecQty" />
+                <ScalarProperty Name="ToCode" ColumnName="ToCode" />
+                <ScalarProperty Name="QULT" ColumnName="QULT" />
+                <ScalarProperty Name="RecQty" ColumnName="RecQty" />
+                <ScalarProperty Name="Pack_Qty" ColumnName="Pack_Qty" />
+                <ScalarProperty Name="FromRegionId" ColumnName="FromRegionId" />
+                <ScalarProperty Name="FromState" ColumnName="FromState" />
+                <ScalarProperty Name="ToRegionId" ColumnName="ToRegionId" />
+                <ScalarProperty Name="ToState" ColumnName="ToState" />
+                <ScalarProperty Name="boxQuantity" ColumnName="boxQuantity" />
+                <ScalarProperty Name="MRP" ColumnName="MRP" />
+                <ScalarProperty Name="LabelTypeId" ColumnName="LabelTypeId" />
+                <ScalarProperty Name="NormalPrinterName" ColumnName="NormalPrinterName" />
+                <ScalarProperty Name="PrinterName" ColumnName="PrinterName" />
+                <ScalarProperty Name="LabelTypeId2" ColumnName="LabelTypeId2" />
+                <ScalarProperty Name="BoxPrinterName" ColumnName="BoxPrinterName" />
+                <ScalarProperty Name="PrinterName1" ColumnName="PrinterName1" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="UserMasters">
+            <EntityTypeMapping TypeName="RHLWMS_LIVEModel.UserMaster">
+              <MappingFragment StoreEntitySet="UserMaster">
+                <ScalarProperty Name="TokenId" ColumnName="TokenId" />
+                <ScalarProperty Name="PasswordChange" ColumnName="PasswordChange" />
+                <ScalarProperty Name="LastLogin" ColumnName="LastLogin" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="UserCode" ColumnName="UserCode" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="ItemConversion" FunctionName="RHLWMS_LIVEModel.Store.ItemConversion">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RHLWMS_LIVEModel.ItemConversion_Result">
+                <ScalarProperty Name="ConversionId" ColumnName="ConversionId" />
+                <ScalarProperty Name="FromCode" ColumnName="FromCode" />
+                <ScalarProperty Name="FromDesc" ColumnName="FromDesc" />
+                <ScalarProperty Name="FromRecQty" ColumnName="FromRecQty" />
+                <ScalarProperty Name="ToCode" ColumnName="ToCode" />
+                <ScalarProperty Name="ToDesc" ColumnName="ToDesc" />
+                <ScalarProperty Name="RecQty" ColumnName="RecQty" />
+                <ScalarProperty Name="Pack_Qty" ColumnName="Pack_Qty" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="LabelTypeId" ColumnName="LabelTypeId" />
+                <ScalarProperty Name="NormalPrinterName" ColumnName="NormalPrinterName" />
+                <ScalarProperty Name="DocEntry" ColumnName="DocEntry" />
+                <ScalarProperty Name="DocNum" ColumnName="DocNum" />
+                <ScalarProperty Name="PrinterName" ColumnName="PrinterName" />
+                <ScalarProperty Name="LabelTypeId2" ColumnName="LabelTypeId2" />
+                <ScalarProperty Name="BoxPrinterName" ColumnName="BoxPrinterName" />
+                <ScalarProperty Name="PrinterName1" ColumnName="PrinterName1" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="MRPLabelPrintView" FunctionName="RHLWMS_LIVEModel.Store.MRPLabelPrintView">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RHLWMS_LIVEModel.MRPLabelPrintView_Result">
+                <ScalarProperty Name="DeliveryNo" ColumnName="DeliveryNo" />
+                <ScalarProperty Name="SAPDocNum" ColumnName="SAPDocNum" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="SaleOrder" ColumnName="SaleOrder" />
+                <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
+                <ScalarProperty Name="DODocEntry" ColumnName="DODocEntry" />
+                <ScalarProperty Name="OutwardId" ColumnName="OutwardId" />
+                <ScalarProperty Name="PickId" ColumnName="PickId" />
+                <ScalarProperty Name="TrolleyId" ColumnName="TrolleyId" />
+                <ScalarProperty Name="TrolleyCode" ColumnName="TrolleyCode" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="TrollyQuantity" ColumnName="TrollyQuantity" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="MRPWorkOrderDetailView" FunctionName="RHLWMS_LIVEModel.Store.MRPWorkOrderDetailView">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RHLWMS_LIVEModel.MRPWorkOrderDetailView_Result">
+                <ScalarProperty Name="WorkOrderId" ColumnName="WorkOrderId" />
+                <ScalarProperty Name="WOType" ColumnName="WOType" />
+                <ScalarProperty Name="WOWMonth" ColumnName="WOWMonth" />
+                <ScalarProperty Name="WOYear" ColumnName="WOYear" />
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="SetDscription" ColumnName="SetDscription" />
+                <ScalarProperty Name="Brand" ColumnName="Brand" />
+                <ScalarProperty Name="boxQuantity" ColumnName="boxQuantity" />
+                <ScalarProperty Name="Sizes" ColumnName="Sizes" />
+                <ScalarProperty Name="sizee" ColumnName="sizee" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="DocNum" ColumnName="DocNum" />
+                <ScalarProperty Name="u_itemgrp" ColumnName="u_itemgrp" />
+                <ScalarProperty Name="QULT" ColumnName="QULT" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="PurPackUn" ColumnName="PurPackUn" />
+                <ScalarProperty Name="DocEntry" ColumnName="DocEntry" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Price1" ColumnName="Price1" />
+                <ScalarProperty Name="autocode" ColumnName="autocode" />
+                <ScalarProperty Name="Pack_Qty" ColumnName="Pack_Qty" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Hankieqty" ColumnName="Hankieqty" />
+                <ScalarProperty Name="LabelTypeId" ColumnName="LabelTypeId" />
+                <ScalarProperty Name="NormalPrinterName" ColumnName="NormalPrinterName" />
+                <ScalarProperty Name="PrinterName" ColumnName="PrinterName" />
+                <ScalarProperty Name="LabelTypeId1" ColumnName="LabelTypeId1" />
+                <ScalarProperty Name="BoxPrinterName" ColumnName="BoxPrinterName" />
+                <ScalarProperty Name="PrinterName1" ColumnName="PrinterName1" />
+                <ScalarProperty Name="SizeRemark" ColumnName="SizeRemark" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SalesDCBundle_TableSave" FunctionName="RHLWMS_LIVEModel.Store.SalesDCBundle_TableSave" />
+          <FunctionImportMapping FunctionImportName="TrollyDetail" FunctionName="RHLWMS_LIVEModel.Store.TrollyDetail">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RHLWMS_LIVEModel.TrollyDetail_Result">
+                <ScalarProperty Name="TrallyId" ColumnName="TrallyId" />
+                <ScalarProperty Name="TrolleyCode" ColumnName="TrolleyCode" />
+                <ScalarProperty Name="DCId" ColumnName="DCId" />
+                <ScalarProperty Name="DocNum" ColumnName="DocNum" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="Sizes" ColumnName="Sizes" />
+                <ScalarProperty Name="boxQuantity" ColumnName="boxQuantity" />
+                <ScalarProperty Name="LineNum" ColumnName="LineNum" />
+                <ScalarProperty Name="TreeType" ColumnName="TreeType" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="PackingTypeMasters">
+            <EntityTypeMapping TypeName="RHLWMS_LIVEModel.PackingTypeMaster">
+              <MappingFragment StoreEntitySet="PackingTypeMaster">
+                <ScalarProperty Name="WId" ColumnName="WId" />
+                <ScalarProperty Name="RecBinFlag" ColumnName="RecBinFlag" />
+                <ScalarProperty Name="RegionAssignFlag" ColumnName="RegionAssignFlag" />
+                <ScalarProperty Name="BTOBFlag" ColumnName="BTOBFlag" />
+                <ScalarProperty Name="SetBinningFlag" ColumnName="SetBinningFlag" />
+                <ScalarProperty Name="setcheck" ColumnName="setcheck" />
+                <ScalarProperty Name="Inward" ColumnName="Inward" />
+                <ScalarProperty Name="PTName" ColumnName="PTName" />
+                <ScalarProperty Name="PTypeId" ColumnName="PTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="AnnualInventory_WMSStock_View" FunctionName="RHLWMS_LIVEModel.Store.AnnualInventory_WMSStock_View">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RHLWMS_LIVEModel.AnnualInventory_WMSStock_View_Result">
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="PTypeId" ColumnName="PTypeId" />
+                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+                <ScalarProperty Name="Process" ColumnName="Process" />
+                <ScalarProperty Name="StockTypeId" ColumnName="StockTypeId" />
+                <ScalarProperty Name="RefNo" ColumnName="RefNo" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+                <ScalarProperty Name="sno" ColumnName="sno" />
+                <ScalarProperty Name="PhysicalStock" ColumnName="PhysicalStock" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="ItemMasters">
+            <EntityTypeMapping TypeName="RHLWMS_LIVEModel.ItemMaster">
+              <MappingFragment StoreEntitySet="ItemMaster">
+                <ScalarProperty Name="PIDate" ColumnName="PIDate" />
+                <ScalarProperty Name="PIFlag" ColumnName="PIFlag" />
+                <ScalarProperty Name="SetFlag" ColumnName="SetFlag" />
+                <ScalarProperty Name="UDate" ColumnName="UDate" />
+                <ScalarProperty Name="CrDate" ColumnName="CrDate" />
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+                <ScalarProperty Name="U_MisSubGrp" ColumnName="U_MisSubGrp" />
+                <ScalarProperty Name="U_MisMainGrp" ColumnName="U_MisMainGrp" />
+                <ScalarProperty Name="U_PackQty" ColumnName="U_PackQty" />
+                <ScalarProperty Name="U_OldBrand" ColumnName="U_OldBrand" />
+                <ScalarProperty Name="U_Subgrp9" ColumnName="U_Subgrp9" />
+                <ScalarProperty Name="U_Division" ColumnName="U_Division" />
+                <ScalarProperty Name="U_scode" ColumnName="U_scode" />
+                <ScalarProperty Name="U_SizeGroup" ColumnName="U_SizeGroup" />
+                <ScalarProperty Name="U_brandgroup" ColumnName="U_brandgroup" />
+                <ScalarProperty Name="U_HSNCODE" ColumnName="U_HSNCODE" />
+                <ScalarProperty Name="U_Rack4" ColumnName="U_Rack4" />
+                <ScalarProperty Name="U_SRName" ColumnName="U_SRName" />
+                <ScalarProperty Name="U_SRCode" ColumnName="U_SRCode" />
+                <ScalarProperty Name="U_Rack" ColumnName="U_Rack" />
+                <ScalarProperty Name="U_MaxStock" ColumnName="U_MaxStock" />
+                <ScalarProperty Name="U_MinStock" ColumnName="U_MinStock" />
+                <ScalarProperty Name="U_SubGrp8" ColumnName="U_SubGrp8" />
+                <ScalarProperty Name="U_SubGrp7" ColumnName="U_SubGrp7" />
+                <ScalarProperty Name="U_SubGrp6" ColumnName="U_SubGrp6" />
+                <ScalarProperty Name="U_SubGrp5" ColumnName="U_SubGrp5" />
+                <ScalarProperty Name="U_SubGrp4" ColumnName="U_SubGrp4" />
+                <ScalarProperty Name="U_SubGrp3" ColumnName="U_SubGrp3" />
+                <ScalarProperty Name="U_SubGrp2" ColumnName="U_SubGrp2" />
+                <ScalarProperty Name="U_SubGrp1" ColumnName="U_SubGrp1" />
+                <ScalarProperty Name="U_Style" ColumnName="U_Style" />
+                <ScalarProperty Name="U_Size" ColumnName="U_Size" />
+                <ScalarProperty Name="DataSource" ColumnName="DataSource" />
+                <ScalarProperty Name="SalPackUn" ColumnName="SalPackUn" />
+                <ScalarProperty Name="SalPackMsr" ColumnName="SalPackMsr" />
+                <ScalarProperty Name="PurPackUn" ColumnName="PurPackUn" />
+                <ScalarProperty Name="PurPackMsr" ColumnName="PurPackMsr" />
+                <ScalarProperty Name="SalUnitMsr" ColumnName="SalUnitMsr" />
+                <ScalarProperty Name="BuyUnitMsr" ColumnName="BuyUnitMsr" />
+                <ScalarProperty Name="ItmsGrpCod" ColumnName="ItmsGrpCod" />
+                <ScalarProperty Name="FrgnName" ColumnName="FrgnName" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Combo_ProcessMaster_Get" FunctionName="RHLWMS_LIVEModel.Store.Combo_ProcessMaster_Get">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RHLWMS_LIVEModel.Combo_ProcessMaster_Get_Result">
+                <ScalarProperty Name="StockTypeId" ColumnName="StockTypeId" />
+                <ScalarProperty Name="Process" ColumnName="Process" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetTrolleyForMRPAutoPrint" FunctionName="RHLWMS_LIVEModel.Store.GetTrolleyForMRPAutoPrint">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RHLWMS_LIVEModel.GetTrolleyForMRPAutoPrint_Result">
+                <ScalarProperty Name="SAPDocNum" ColumnName="SAPDocNum" />
+                <ScalarProperty Name="DCDate" ColumnName="DCDate" />
+                <ScalarProperty Name="OrderPickingId" ColumnName="OrderPickingId" />
+                <ScalarProperty Name="TrolleyId" ColumnName="TrolleyId" />
+                <ScalarProperty Name="TrolleyCode" ColumnName="TrolleyCode" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="AutoComp_SampleItem" FunctionName="RHLWMS_LIVEModel.Store.AutoComp_SampleItem" />
+          <FunctionImportMapping FunctionImportName="AutoMRP_Print" FunctionName="RHLWMS_LIVEModel.Store.AutoMRP_Print">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RHLWMS_LIVEModel.AutoMRP_Print_Result">
+                <ScalarProperty Name="TrolleyCode" ColumnName="TrolleyCode" />
+                <ScalarProperty Name="TrolleyId" ColumnName="TrolleyId" />
+                <ScalarProperty Name="DCId" ColumnName="DCId" />
+                <ScalarProperty Name="OrderDetId" ColumnName="OrderDetId" />
+                <ScalarProperty Name="DCDetId" ColumnName="DCDetId" />
+                <ScalarProperty Name="SAPDocNum" ColumnName="SAPDocNum" />
+                <ScalarProperty Name="SAPDCId" ColumnName="SAPDCId" />
+                <ScalarProperty Name="cardcode" ColumnName="cardcode" />
+                <ScalarProperty Name="DCMonth" ColumnName="DCMonth" />
+                <ScalarProperty Name="DCYear" ColumnName="DCYear" />
+                <ScalarProperty Name="SAPDCPostDate" ColumnName="SAPDCPostDate" />
+                <ScalarProperty Name="DocNum" ColumnName="DocNum" />
+                <ScalarProperty Name="DocEntry" ColumnName="DocEntry" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="CardName" ColumnName="CardName" />
+                <ScalarProperty Name="Partytype" ColumnName="Partytype" />
+                <ScalarProperty Name="U_State" ColumnName="U_State" />
+                <ScalarProperty Name="U_SalPriceCode" ColumnName="U_SalPriceCode" />
+                <ScalarProperty Name="Symbol" ColumnName="Symbol" />
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+                <ScalarProperty Name="U_SRCode" ColumnName="U_SRCode" />
+                <ScalarProperty Name="QULT" ColumnName="QULT" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="TotalMRP" ColumnName="TotalMRP" />
+                <ScalarProperty Name="SetMRP" ColumnName="SetMRP" />
+                <ScalarProperty Name="Sizes" ColumnName="Sizes" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="boxQuantity" ColumnName="boxQuantity" />
+                <ScalarProperty Name="LineNum" ColumnName="LineNum" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="HankieDoubleMRPs" ColumnName="HankieDoubleMRPs" />
+                <ScalarProperty Name="Hankieqty" ColumnName="Hankieqty" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="PurPackUn" ColumnName="PurPackUn" />
+                <ScalarProperty Name="Pack_Qty" ColumnName="Pack_Qty" />
+                <ScalarProperty Name="Packstatus" ColumnName="Packstatus" />
+                <ScalarProperty Name="MinPack_Qty" ColumnName="MinPack_Qty" />
+                <ScalarProperty Name="SAPDocNumP" ColumnName="SAPDocNumP" />
+                <ScalarProperty Name="LabelTypeId" ColumnName="LabelTypeId" />
+                <ScalarProperty Name="LableTypeName" ColumnName="LableTypeName" />
+                <ScalarProperty Name="PrinterName" ColumnName="PrinterName" />
+                <ScalarProperty Name="LabelTypeId1" ColumnName="LabelTypeId1" />
+                <ScalarProperty Name="LableTypeName1" ColumnName="LableTypeName1" />
+                <ScalarProperty Name="PrinterName1" ColumnName="PrinterName1" />
+                <ScalarProperty Name="SizeRemark" ColumnName="SizeRemark" />
+                <ScalarProperty Name="Bom_MRP" ColumnName="Bom_MRP" />
+                <ScalarProperty Name="Char1_ASCII" ColumnName="Char1_ASCII" />
+                <ScalarProperty Name="Char2_ASCII" ColumnName="Char2_ASCII" />
+                <ScalarProperty Name="Char3_ASCII" ColumnName="Char3_ASCII" />
+                <ScalarProperty Name="Char1_Unicode" ColumnName="Char1_Unicode" />
+                <ScalarProperty Name="Char2_Unicode" ColumnName="Char2_Unicode" />
+                <ScalarProperty Name="Char3_Unicode" ColumnName="Char3_Unicode" />
+                <ScalarProperty Name="treetype" ColumnName="treetype" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="AutoMRP_RePrint" FunctionName="RHLWMS_LIVEModel.Store.AutoMRP_RePrint">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RHLWMS_LIVEModel.AutoMRP_RePrint_Result">
+                <ScalarProperty Name="TrolleyCode" ColumnName="TrolleyCode" />
+                <ScalarProperty Name="TrolleyId" ColumnName="TrolleyId" />
+                <ScalarProperty Name="DCId" ColumnName="DCId" />
+                <ScalarProperty Name="OrderDetId" ColumnName="OrderDetId" />
+                <ScalarProperty Name="DCDetId" ColumnName="DCDetId" />
+                <ScalarProperty Name="SAPDocNum" ColumnName="SAPDocNum" />
+                <ScalarProperty Name="SAPDCId" ColumnName="SAPDCId" />
+                <ScalarProperty Name="cardcode" ColumnName="cardcode" />
+                <ScalarProperty Name="DCMonth" ColumnName="DCMonth" />
+                <ScalarProperty Name="DCYear" ColumnName="DCYear" />
+                <ScalarProperty Name="SAPDCPostDate" ColumnName="SAPDCPostDate" />
+                <ScalarProperty Name="DocNum" ColumnName="DocNum" />
+                <ScalarProperty Name="DocEntry" ColumnName="DocEntry" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="CardName" ColumnName="CardName" />
+                <ScalarProperty Name="Partytype" ColumnName="Partytype" />
+                <ScalarProperty Name="U_State" ColumnName="U_State" />
+                <ScalarProperty Name="U_SalPriceCode" ColumnName="U_SalPriceCode" />
+                <ScalarProperty Name="Symbol" ColumnName="Symbol" />
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+                <ScalarProperty Name="U_SRCode" ColumnName="U_SRCode" />
+                <ScalarProperty Name="QULT" ColumnName="QULT" />
+                <ScalarProperty Name="TotalMRP" ColumnName="TotalMRP" />
+                <ScalarProperty Name="SetMRP" ColumnName="SetMRP" />
+                <ScalarProperty Name="Sizes" ColumnName="Sizes" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="boxQuantity" ColumnName="boxQuantity" />
+                <ScalarProperty Name="LineNum" ColumnName="LineNum" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="HankieDoubleMRPs" ColumnName="HankieDoubleMRPs" />
+                <ScalarProperty Name="Hankieqty" ColumnName="Hankieqty" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="PurPackUn" ColumnName="PurPackUn" />
+                <ScalarProperty Name="Pack_Qty" ColumnName="Pack_Qty" />
+                <ScalarProperty Name="Packstatus" ColumnName="Packstatus" />
+                <ScalarProperty Name="MinPack_Qty" ColumnName="MinPack_Qty" />
+                <ScalarProperty Name="SAPDocNumP" ColumnName="SAPDocNumP" />
+                <ScalarProperty Name="LabelTypeId" ColumnName="LabelTypeId" />
+                <ScalarProperty Name="LableTypeName" ColumnName="LableTypeName" />
+                <ScalarProperty Name="PrinterName" ColumnName="PrinterName" />
+                <ScalarProperty Name="LabelTypeId1" ColumnName="LabelTypeId1" />
+                <ScalarProperty Name="LableTypeName1" ColumnName="LableTypeName1" />
+                <ScalarProperty Name="PrinterName1" ColumnName="PrinterName1" />
+                <ScalarProperty Name="SizeRemark" ColumnName="SizeRemark" />
+                <ScalarProperty Name="treetype" ColumnName="treetype" />
+                <ScalarProperty Name="purchaseqty" ColumnName="purchaseqty" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SalesReturn_Print" FunctionName="RHLWMS_LIVEModel.Store.SalesReturn_Print">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RHLWMS_LIVEModel.SalesReturn_Print_Result">
+                <ScalarProperty Name="SalesReturnId" ColumnName="SalesReturnId" />
+                <ScalarProperty Name="SAPDocNum" ColumnName="SAPDocNum" />
+                <ScalarProperty Name="SAPDocEntry" ColumnName="SAPDocEntry" />
+                <ScalarProperty Name="DcDtlId" ColumnName="DcDtlId" />
+                <ScalarProperty Name="DCId" ColumnName="DCId" />
+                <ScalarProperty Name="Cardcode" ColumnName="Cardcode" />
+                <ScalarProperty Name="CardName" ColumnName="CardName" />
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="dscription" ColumnName="dscription" />
+                <ScalarProperty Name="DCNum" ColumnName="DCNum" />
+                <ScalarProperty Name="WHSCode" ColumnName="WHSCode" />
+                <ScalarProperty Name="SalReturnDtlid" ColumnName="SalReturnDtlid" />
+                <ScalarProperty Name="TreeType" ColumnName="TreeType" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SampleReturn_Print" FunctionName="RHLWMS_LIVEModel.Store.SampleReturn_Print">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RHLWMS_LIVEModel.SampleReturn_Print_Result">
+                <ScalarProperty Name="SampleReturnId" ColumnName="SampleReturnId" />
+                <ScalarProperty Name="SampleReturnDtlid" ColumnName="SampleReturnDtlid" />
+                <ScalarProperty Name="EmpNo" ColumnName="EmpNo" />
+                <ScalarProperty Name="Employee_Name" ColumnName="Employee_Name" />
+                <ScalarProperty Name="Cardcode" ColumnName="Cardcode" />
+                <ScalarProperty Name="CardName" ColumnName="CardName" />
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="dscription" ColumnName="dscription" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="TreeType" ColumnName="TreeType" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SampleReq_Print" FunctionName="RHLWMS_LIVEModel.Store.SampleReq_Print">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RHLWMS_LIVEModel.SampleReq_Print_Result">
+                <ScalarProperty Name="SampRequestId" ColumnName="SampRequestId" />
+                <ScalarProperty Name="SAPDocEntryID" ColumnName="SAPDocEntryID" />
+                <ScalarProperty Name="SAPDocNum" ColumnName="SAPDocNum" />
+                <ScalarProperty Name="FromWName" ColumnName="FromWName" />
+                <ScalarProperty Name="ToWName" ColumnName="ToWName" />
+                <ScalarProperty Name="OutwardTypeName" ColumnName="OutwardTypeName" />
+                <ScalarProperty Name="SampRequestDtlid" ColumnName="SampRequestDtlid" />
+                <ScalarProperty Name="docdate" ColumnName="docdate" />
+                <ScalarProperty Name="U_SRCode" ColumnName="U_SRCode" />
+                <ScalarProperty Name="cardcode" ColumnName="cardcode" />
+                <ScalarProperty Name="cardname" ColumnName="cardname" />
+                <ScalarProperty Name="quality" ColumnName="quality" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+                <ScalarProperty Name="Contents" ColumnName="Contents" />
+                <ScalarProperty Name="u_size" ColumnName="u_size" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="boxqty" ColumnName="boxqty" />
+                <ScalarProperty Name="STATE" ColumnName="STATE" />
+                <ScalarProperty Name="TotalMRP" ColumnName="TotalMRP" />
+                <ScalarProperty Name="SetMRP" ColumnName="SetMRP" />
+                <ScalarProperty Name="ReqQty" ColumnName="ReqQty" />
+                <ScalarProperty Name="TreeType" ColumnName="TreeType" />
+                <ScalarProperty Name="LabelTypeId" ColumnName="LabelTypeId" />
+                <ScalarProperty Name="LableTypeName" ColumnName="LableTypeName" />
+                <ScalarProperty Name="PrinterName" ColumnName="PrinterName" />
+                <ScalarProperty Name="LabelTypeId1" ColumnName="LabelTypeId1" />
+                <ScalarProperty Name="LableTypeName1" ColumnName="LableTypeName1" />
+                <ScalarProperty Name="PrinterName1" ColumnName="PrinterName1" />
+                <ScalarProperty Name="SizeRemark" ColumnName="SizeRemark" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
